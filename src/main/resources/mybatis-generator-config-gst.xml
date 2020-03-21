@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry
+            location="/Users/ganshitao/.m2/repository/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar"/>
+
+    <context id="config" targetRuntime="MyBatis3">
+        <!--<commentGenerator>
+             &lt;!&ndash; 是否去除自动生成的注释 true：是 ： false:否 &ndash;&gt;
+             <property name="suppressAllComments" value="true" />
+         </commentGenerator>-->
+        <!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
+         一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖
+      -->
+        <property name="autoDelimitKeywords" value="true"/>
+        <!-- 生成的Java文件的编码 -->
+        <property name="javaFileEncoding" value="UTF-8"/>
+
+        <!-- beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <commentGenerator type="org.mybatis.generator.internal.DG2CommentGenerator">
+            <property name="javaFileEncoding" value="UTF-8"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <!--建议一定要保留suppressAllComments属性(使用默认值false)，
+            一定要取消(设为true)时间戳suppressDate，避免重复提交SVN。-->
+            <property name="suppressAllComments" value="false"/>
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/asgard?useUnicode=true&amp;characterEncoding=utf-8"
+                        userId="root"
+                        password="anywhere">
+        </jdbcConnection>
+
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- model class config -->
+        <javaModelGenerator targetPackage="io.terminus.asgard.asgardapi.model"
+                            targetProject="/Users/ganshitao/Documents/Git/asgard/asgard-api/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="/Users/ganshitao/Documents/Git/asgard/asgard-service/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator type="XMLMAPPER" targetPackage="io.terminus.asgard.asgardservice.mapper"
+                             targetProject="/Users/ganshitao/Documents/Git/asgard/asgard-service/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--delimitIdentifiers="true" delimitAllColumns="true"-->
+
+        <!--<table tableName="%" >-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel" />-->
+        <!--</table>-->
+
+        <!--<table tableName="company_account">-->
+            <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="tenant_component_config_target" >-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="purchaser_supplier_basic_info" >-->
+            <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="purchaser_supplier_basic_info" >-->
+            <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="asgard_dictionary" >-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="saas_component_config">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="asgard_tag_setting">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel" />-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_account">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--<generatedKey column="id" sqlStatement="mysql" identity="true"/>-->
+        <!--<ignoreColumn column="created_by"></ignoreColumn>-->
+        <!--<ignoreColumn column="last_updated_by"></ignoreColumn>-->
+        <!--<ignoreColumn column="created_at"></ignoreColumn>-->
+        <!--<ignoreColumn column="last_updated_at"></ignoreColumn>-->
+        <!--<ignoreColumn column="extra_json"></ignoreColumn>-->
+        <!--<ignoreColumn column="options"></ignoreColumn>-->
+        <!--<ignoreColumn column="is_deleted"></ignoreColumn>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_basic">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_black">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_company">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_company_tax">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="tag">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_follow_info_component">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_info_component">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_invitation_code">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_rate_template">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_rate_template_module">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_supplier_basic_info">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_supplier_investigate_result">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_supplier_rate_template_result">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="purchaser_supplier_tag">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="purchaser_supplier_business_scope">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="tenant_supplier_business_scope">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+
+        <!--<table tableName="company_bank_info">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel" />-->
+        <!--</table>-->
+
+        <table tableName="company_account">
+        <property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel" />
+        </table>
+
+        <!--<table tableName="company_info" >-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel" />-->
+        <!--</table>-->
+
+        <!--<table tableName="tenant_purchaser_basic_info" >-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel" />-->
+        <!--</table>-->
+
+        <!--<table tableName="company_tax_info" >-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel" />-->
+        <!--</table>-->
+
+        <!--<table tableName="company_info_component" >-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel" />-->
+        <!--</table>-->
+
+        <!--<table tableName="supplier_bank_info">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="supplier_bank_info_history">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="supplier_basic_info">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="supplier_basic_info_history">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="supplier_company_info">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="supplier_company_info_history">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="supplier_company_tax_info">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="supplier_company_tax_info_history">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="supplier_info_component">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="supplier_info_component_history">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="tenant_account">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+        <!--<table tableName="tenant_basic_info">-->
+        <!--<property name="rootClass" value="io.terminus.asgard.asgardcommon.model.BaseModel"/>-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>
