@@ -123,5 +123,6 @@ public class TbOrder {
     + BaseRecordGenerator
     + JavaMapperGenerator
     + ExampleGenerator
+    + DG2CommentGenerator entity field的注解生成
 
 
