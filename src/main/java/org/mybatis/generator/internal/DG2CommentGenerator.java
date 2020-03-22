@@ -79,6 +79,7 @@ public class DG2CommentGenerator extends DefaultCommentGenerator {
             IntrospectedColumn primaryColumn1 = primaryKeys.next();
             if (introspectedColumn == primaryColumn1) {
                 field.addAnnotation("@Id");
+                field.addAnnotation("@GeneratedValue(strategy= GenerationType.IDENTITY)");
             }
         }
 
